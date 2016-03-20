@@ -153,6 +153,7 @@ void Q6() {
     scanf("%d", &number);
     
     // TODO:
+    
 }
 
 int main() {
