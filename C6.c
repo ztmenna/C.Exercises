@@ -152,8 +152,11 @@ void Q6() {
     printf("Enter a number: ");
     scanf("%d", &number);
     
-    // TODO:
-    
+    for (int i = 2; square < number; i++) {
+        square = i * i;
+        if (square > number) break;
+        if (i % 2 == 0) printf("%d\n", square);
+    }
 }
 
 int main() {
