@@ -159,7 +159,85 @@ void Q6() {
     }
 }
 
+// Print a one month calendar based on the number of
+// days in a month and the starting day of the week.
+
+void Q8() {
+    int daysInWeek = 7, daysInMonth, startingDay, remainingDays;
+    
+    printf("Enter the number of days in a month: ");
+    scanf("%d", &daysInMonth);
+    printf("Enter starting day (1 = Sun, 7 = Sat): ");
+    scanf("%d", &startingDay);
+    
+    for (int i = 1; i < startingDay; i++) printf("   "); // Indent
+    
+    remainingDays = daysInWeek - (startingDay - 1);
+    
+    for (int i = 1; i <= daysInMonth; i++) {
+        if (remainingDays > 1) {
+            printf("%3d", i);
+            remainingDays--;
+        } else {
+            printf("%3d\n", i);
+            remainingDays = 7;
+        }
+    }
+    
+    printf("\n");
+}
+
+// Q9 is a generalization of C2Q8 with a loop.
+
+void Q9() {
+    float amount, interest, payment, numberOfPayments;
+    printf("Enter amount: ");
+    scanf("%f", &amount);
+    printf("Enter interest: ");
+    scanf("%f", &interest);
+    printf("Enter payment: ");
+    scanf("%f", &payment);
+    printf("Enter number of payments: ");
+    scanf("%f", &numberOfPayments);
+    
+    interest = (interest / 100.0f) / 12.0f;
+    
+    for (int i = 1; i <= numberOfPayments; i++) {
+        amount = (amount - payment) + (amount * interest);
+        printf("Balance remaining after payment %d: $%.2f\n", i, amount);
+    }
+}
+
+void Q10() {
+    
+}
+
+
+// Find the approximate value of the constant e
+// e = 1 + 1/1! + 1/2! + 1/3! ... + 1/n!
+// where n is a value entered by the user.
+
+void Q11() {
+    int number;
+    float e = 1.0f, denominator = 1.0f;
+    
+    printf("Enter an intereger value: ");
+    scanf("%d", &number);
+    
+    for (int i = 1, j = 1; i <= number; i++, j = i) {
+        while (j > 1) {
+            denominator *= j;
+            j--;
+        }
+        
+        e += 1 / denominator;
+        denominator = 1.0f;
+    }
+    
+    printf("An approximate value of e: %.10f\n", e);
+}
+
 int main() {
-    Q6();
+    Q11();
     return 0;
 }
