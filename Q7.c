@@ -125,6 +125,29 @@ void Q6() {
     printf("long double size: %lu\n", sizeof(long double));
 }
 
+void Q10() {
+    printf("Enter a sentence: ");
+    
+    int count = 0;
+    char ch = getchar();
+    
+    while (ch != '\n') {
+        switch (tolower(ch)) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                count++;
+                break;
+        }
+        
+        ch = getchar();
+    }
+    
+    printf("Your sentence contains %d vowels.\n", count);
+}
+
 int main() {
-    Q6();
+    Q10();
 }
